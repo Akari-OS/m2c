@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://m2c-protocol.org/schema/v0.1/media-context.json",
+  "title": "M2C MediaContext",
+  "description": "Structured context extracted from media by M2C analysis pipeline",
+  "type": "object",
+  "required": ["schemaVersion", "mediaType", "summary", "tags", "confidence", "analyzedModules", "precisionLevel", "analyzedAt"],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "mediaType": {
+      "type": "string",
+      "enum": ["video", "image", "audio"]
+    },
+    "summary": {
+      "type": "string",
+      "description": "AI-generated summary of the media content"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "mood": {
+      "type": "string",
+      "description": "Overall mood/atmosphere"
+    },
+    "colorPalette": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+      "description": "Dominant colors as hex codes"
+    },
+    "duration": {
+      "type": "number",
+      "description": "Duration in seconds (0 for images)"
+    },
+    "speakers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "ratio"],
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "ratio": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["index", "start", "end", "summary"],
+        "properties": {
+          "index": { "type": "integer" },
+          "start": { "type": "number" },
+          "end": { "type": "number" },
+          "summary": { "type": "string" },
+          "keyframePath": { "type": "string" },
+          "objects": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "transcript": { "type": "string" },
+          "mood": { "type": "string" },
+          "colorPalette": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "transcription": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["start", "end", "text"],
+        "properties": {
+          "start": { "type": "number" },
+          "end": { "type": "number" },
+          "text": { "type": "string" },
+          "speaker": { "type": ["string", "null"] },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "acoustic": {
+      "type": "object",
+      "properties": {
+        "bgmSegments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "start": { "type": "number" },
+              "end": { "type": "number" },
+              "mood": { "type": "string" }
+            }
+          }
+        },
+        "silenceSegments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "start": { "type": "number" },
+              "end": { "type": "number" }
+            }
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "time": { "type": "number" },
+              "type": { "type": "string" },
+              "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+            }
+          }
+        }
+      }
+    },
+    "visual": {
+      "type": "object",
+      "properties": {
+        "dominantColors": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "averageBrightness": { "type": "number" },
+        "faceCount": { "type": "integer" },
+        "objectFrequency": {
+          "type": "object",
+          "additionalProperties": { "type": "integer" }
+        }
+      }
+    },
+    "style": {
+      "type": ["object", "null"],
+      "properties": {
+        "cutTempo": { "type": "string" },
+        "textStyle": { "type": "string" },
+        "transitions": { "type": "string" }
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Aggregate confidence score"
+    },
+    "analyzedModules": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "precisionLevel": {
+      "type": "string",
+      "enum": ["quick", "standard", "deep"]
+    },
+    "analyzedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

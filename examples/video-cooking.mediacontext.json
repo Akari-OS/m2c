@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "2026-04-01",
+  "mediaType": "video",
+  "summary": "Cooking tutorial featuring 3 recipes (pasta, salad, dessert). Bright kitchen setting with a single host. Upbeat background music throughout. Casual, friendly tone aimed at home cooks.",
+  "tags": ["cooking", "tutorial", "recipe", "pasta", "salad", "dessert", "kitchen"],
+  "moods": ["bright", "casual", "energetic"],
+  "colorPalette": ["#F5E6D3", "#2C5F2D", "#E8A87C", "#97C1A9", "#4A4A4A"],
+  "duration": 406.5,
+  "speakers": [
+    { "id": "SPEAKER_01", "label": "Host", "ratio": 0.85 },
+    { "id": "SPEAKER_02", "label": "Guest", "ratio": 0.15 }
+  ],
+  "scenes": [
+    {
+      "index": 0,
+      "start": 0.0,
+      "end": 25.3,
+      "summary": "Opening. Host greets viewers and introduces today's menu.",
+      "keyframeUri": "file:///tmp/m2c/kf_000.jpg",
+      "objects": ["person", "kitchen", "microphone"],
+      "transcript": "Hi everyone! Welcome back to my kitchen. Today we're making three easy recipes...",
+      "moods": ["energetic"],
+      "confidence": 0.94
+    },
+    {
+      "index": 1,
+      "start": 25.3,
+      "end": 142.8,
+      "summary": "First recipe: pasta with garlic and olive oil. Step-by-step demonstration.",
+      "keyframeUri": "file:///tmp/m2c/kf_001.jpg",
+      "objects": ["person", "pot", "pasta", "stove", "olive oil"],
+      "transcript": "For our first recipe, we need spaghetti, garlic, olive oil...",
+      "moods": ["calm"],
+      "confidence": 0.91
+    },
+    {
+      "index": 2,
+      "start": 142.8,
+      "end": 280.5,
+      "summary": "Second recipe: fresh garden salad with vinaigrette dressing.",
+      "keyframeUri": "file:///tmp/m2c/kf_002.jpg",
+      "objects": ["person", "bowl", "lettuce", "tomato", "cutting board"],
+      "transcript": "Moving on to our salad. Start by washing the lettuce...",
+      "moods": ["bright"],
+      "confidence": 0.89
+    },
+    {
+      "index": 3,
+      "start": 280.5,
+      "end": 380.2,
+      "summary": "Third recipe: chocolate mousse dessert. Quick and simple.",
+      "keyframeUri": "file:///tmp/m2c/kf_003.jpg",
+      "objects": ["person", "bowl", "chocolate", "whisk"],
+      "transcript": "And for dessert, a super easy chocolate mousse...",
+      "moods": ["happy"],
+      "confidence": 0.92
+    },
+    {
+      "index": 4,
+      "start": 380.2,
+      "end": 406.5,
+      "summary": "Closing. Host presents all three dishes and says goodbye.",
+      "keyframeUri": "file:///tmp/m2c/kf_004.jpg",
+      "objects": ["person", "plate", "pasta", "salad", "mousse"],
+      "transcript": "And there you have it! Three easy recipes you can make tonight...",
+      "moods": ["happy", "energetic"],
+      "confidence": 0.95
+    }
+  ],
+  "transcription": [
+    { "start": 0.5, "end": 3.2, "text": "Hi everyone!", "speaker": "SPEAKER_01", "confidence": 0.97 },
+    { "start": 3.5, "end": 8.1, "text": "Welcome back to my kitchen.", "speaker": "SPEAKER_01", "confidence": 0.95 }
+  ],
+  "acoustic": {
+    "bgmSegments": [
+      { "start": 0.0, "end": 25.3, "mood": "upbeat", "confidence": 0.88 },
+      { "start": 380.2, "end": 406.5, "mood": "upbeat", "confidence": 0.85 }
+    ],
+    "silenceSegments": [
+      { "start": 25.0, "end": 25.3 }
+    ],
+    "events": [
+      { "time": 142.5, "type": "applause", "confidence": 0.72 }
+    ],
+    "hasMusic": true,
+    "musicRatio": 0.15
+  },
+  "visual": {
+    "dominantColors": ["#F5E6D3", "#2C5F2D"],
+    "averageBrightness": 0.72,
+    "faceCount": 2,
+    "objectFrequency": {
+      "person": 47,
+      "kitchen": 12,
+      "food": 23,
+      "pot": 8,
+      "bowl": 6
+    }
+  },
+  "extensions": {},
+  "confidence": 0.91,
+  "analyzedModules": ["scene", "transcription", "visual", "color", "acoustic", "summary"],
+  "precisionLevel": "standard",
+  "analyzedAt": "2026-04-01T14:30:00Z",
+  "intent": {
+    "purpose": "Create highlight clips for social media",
+    "hints": {
+      "hasAudio": true,
+      "hasSpeech": true,
+      "hasMusic": true,
+      "speakerCount": 2,
+      "genre": "tutorial"
+    },
+    "background": "Part of a weekly cooking series for beginners"
+  }
+}
