@@ -145,28 +145,52 @@ The [`examples/`](examples/) directory contains sample MediaContext outputs:
 
 ## SDK
 
-> Coming Soon
+> Planned for Phase 6 and beyond. The spec is stable enough to reference; reference SDKs will follow.
 
-| Language | Status |
-|----------|--------|
-| TypeScript | Planned |
-| Python | Planned |
+| Language | Status | Notes |
+|----------|--------|-------|
+| TypeScript | Planned (Phase 6) | Type definitions + lightweight client |
+| Python | Planned (Phase 6) | Analyzer authoring kit |
+| Rust | **In use** via [Pool](https://github.com/Akari-OS/pool) | Production Analyzer impl (not yet a standalone SDK crate) |
 
 ## Known Implementations
 
 | Project | Status | Description |
 |---------|--------|-------------|
-| *Your project here* | — | [Submit an implementation](https://github.com/) |
+| [**Pool**](https://github.com/Akari-OS/pool) | Active | Reference Analyzer implementation. Rust + SQLite + MCP. Ships analyzers for video/audio/image/pdf/office/article/code. |
+| [**AKARI Video**](https://github.com/Akari-OS/video) | Active | Reference M2C consumer. Loads MediaContext from Pool via MCP. |
+| *Your project here* | — | [Submit an implementation](https://github.com/Akari-OS/m2c/discussions) |
+
+## Related Projects — AKARI OS Ecosystem
+
+M2C is the **semantic layer (Layer 2)** of [AKARI OS](https://github.com/Akari-OS), a "personal AI OS" ecosystem.
+
+| Repo | Role | Relation to M2C |
+|---|---|---|
+| [Akari-OS/.github](https://github.com/Akari-OS/.github) | Org profile / governance (public canonical) | VISION / ROADMAP |
+| [pool](https://github.com/Akari-OS/pool) | Universal Knowledge Store (Rust + SQLite + MCP) | **Implements M2C Analyzers**. Stores MediaContext. |
+| [amp](https://github.com/Akari-OS/amp) | Agent Memory Protocol | Complementary protocol (M2C = media memory, AMP = experience memory) |
+| [video](https://github.com/Akari-OS/video) | Video editor (Tauri + Rust) | M2C consumer |
+| [voice](https://github.com/Akari-OS/voice) | Community feedback | — |
+
+See [`docs/architecture.md`](docs/architecture.md) for a detailed integration guide covering the 7 AKARI agents, Shell modules, MCP tool mapping, and LAN-distributed analyzer deployment.
 
 ## License
 
 [Apache 2.0](LICENSE)
+
+## Governance
+
+- [Contributing Guide](CONTRIBUTING.md) — spec change process, PR workflow, commit conventions
+- [Code of Conduct](CODE_OF_CONDUCT.md) — Contributor Covenant v2.1
+- [Changelog](CHANGELOG.md) — version history
 
 ## Links
 
 - [Protocol Spec (v0.2)](spec/v0.2/protocol.md)
 - [Context Supply Spec](spec/v0.2/supply.md)
 - [Interoperability Spec](spec/v0.2/interop.md)
+- [AKARI OS Integration Architecture](docs/architecture.md)
 
 ### Inspiration
 

@@ -137,22 +137,45 @@ spec/
 
 ## SDK
 
-> Coming Soon
+> Phase 6 以降で整備予定。仕様は参照できる段階で安定しているが、リファレンス SDK はこれから。
 
-| 言語 | 状態 |
-|------|------|
-| TypeScript | 予定 |
-| Python | 予定 |
+| 言語 | 状態 | 備考 |
+|------|------|------|
+| TypeScript | 予定（Phase 6） | 型定義 + 軽量クライアント |
+| Python | 予定（Phase 6） | Analyzer 作成キット |
+| Rust | [Pool](https://github.com/Akari-OS/pool) で**実運用中** | プロダクション Analyzer 実装（スタンドアロン crate は未整備） |
 
 ## 既知の実装
 
 | プロジェクト | 状態 | 説明 |
 |------------|------|------|
-| *あなたのプロジェクト* | — | [実装を登録する](https://github.com/) |
+| [**Pool**](https://github.com/Akari-OS/pool) | Active | リファレンス Analyzer 実装。Rust + SQLite + MCP。video/audio/image/pdf/office/article/code 用の Analyzer を提供。 |
+| [**AKARI Video**](https://github.com/Akari-OS/video) | Active | リファレンス M2C コンシューマ。Pool から MCP 経由で MediaContext を読む。 |
+| *あなたのプロジェクト* | — | [実装を登録する](https://github.com/Akari-OS/m2c/discussions) |
+
+## 関連プロジェクト — AKARI OS エコシステム
+
+M2C は [AKARI OS](https://github.com/Akari-OS)（「個人のための AI OS」エコシステム）の **意味層（Layer 2）** を担う。
+
+| リポ | 役割 | M2C との関係 |
+|---|---|---|
+| [Akari-OS/.github](https://github.com/Akari-OS/.github) | Org プロフィール / ガバナンス（公開正典） | VISION / ROADMAP |
+| [pool](https://github.com/Akari-OS/pool) | 汎用 Knowledge Store (Rust + SQLite + MCP) | **M2C Analyzer を実装**。MediaContext を格納。 |
+| [amp](https://github.com/Akari-OS/amp) | Agent Memory Protocol | 補完プロトコル（M2C = メディアの記憶、AMP = 体験の記憶） |
+| [video](https://github.com/Akari-OS/video) | 動画編集アプリ (Tauri + Rust) | M2C コンシューマ |
+| [voice](https://github.com/Akari-OS/voice) | コミュニティフィードバック | — |
+
+7 エージェント、Shell モジュール、MCP ツールマッピング、LAN 分散 Analyzer 配備までを含む詳細は [`docs/architecture.md`](docs/architecture.md) を参照。
 
 ## ライセンス
 
 [Apache 2.0](LICENSE)
+
+## ガバナンス
+
+- [貢献ガイド](CONTRIBUTING.md) — 仕様変更プロセス、PR フロー、コミット規約
+- [行動規範](CODE_OF_CONDUCT.md) — Contributor Covenant v2.1
+- [変更履歴](CHANGELOG.md) — バージョン履歴
 
 ## リンク
 
@@ -160,6 +183,7 @@ spec/
 - [コンテキスト供給仕様](spec/v0.2/supply.md)
 - [相互運用仕様](spec/v0.2/interop.md)
 - [日本語版プロトコル仕様](spec/v0.2/ja/protocol.md)
+- [AKARI OS 統合アーキテクチャ](docs/architecture.md)
 
 ### 参考文献
 
