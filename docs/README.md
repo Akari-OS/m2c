@@ -5,8 +5,8 @@
 > **扱わない範囲**: Analyzer の実装（→ AkariPool の analyzer プラグイン）、UI / Shell 層（→ 各アプリリポ）、戦略判断（→ Hub）
 >
 > - 🌐 正典: [Akari-OS](https://github.com/Akari-OS)
-> - 🏛 Hub（非公開）: `PJ26c21_AkariOS` — 横断研究・戦略・Master Index
-> - 🗺 全リポマップ: `PJ26c21_AkariOS/MAP.md`
+> - 🏛 Hub（非公開）: `akari-os` — 横断研究・戦略・Master Index
+> - 🗺 全リポマップ: `akari-os/MAP.md`
 
 ---
 
