@@ -126,6 +126,11 @@ spec/
 └── v0.1/                    ← Previous version
 ```
 
+> **Note (v0.2 schema artifacts):** The schema types referenced in `spec/v0.2/` documents
+> (`module-manifest.json`, `context-request.json`, `context-policy.json`,
+> `context-response.json`, `m2c.xmp`) are currently inlined within the spec documents.
+> Standalone JSON artifact files are planned for v0.2.1.
+
 ## Design Principles
 
 | Principle | Description |

@@ -26,10 +26,20 @@ and **date-based versioning** (`YYYY-MM-DD`) for the protocol spec.
 - Affected: `spec/v0.2/schema.json`, `interop.md`, `supply.md`, `modules.md`, and Japanese translations.
 
 ### Migration
-- Validators pinning to the old `$id` must update to the new URI.
+- Validators pinning to the old `$id` must update to the new URI:
+  - Old: `https://m2c-protocol.org/schemas/v0.2/media-context.json`
+  - New: `https://github.com/Akari-OS/m2c/schema/v0.2/media-context.json`
+- XMP / interop namespace URI also changed:
+  - Old: `https://m2c-protocol.org/ns/v0.2/`
+  - New: `https://github.com/Akari-OS/m2c/ns/v0.2/`
 - Backwards compatibility: Old URIs will NOT be redirected.
 
 ---
+
+> **Note — v0.2 schema artifacts:** Schema types referenced across `spec/v0.2/` documents
+> (`module-manifest.json`, `context-request.json`, `context-policy.json`,
+> `context-response.json`, `m2c.xmp`) are inlined in the spec documents;
+> standalone JSON artifact files are planned for v0.2.1.
 
 ## [0.2.0-draft] — 2026-04-01
 
