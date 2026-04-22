@@ -3,6 +3,7 @@
 > Status: Draft
 > Date: 2026-04-01
 > Previous: [v0.1](../v0.1/protocol.md)
+> Related-Specs: AMP v0.1 (github.com/Akari-OS/amp), ACE v0.1 (github.com/Akari-OS/ace)
 
 ## 1. Overview
 
