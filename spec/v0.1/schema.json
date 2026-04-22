@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://m2c-protocol.org/schema/v0.1/media-context.json",
+  "$id": "https://github.com/Akari-OS/m2c/schema/v0.2/media-context.json",
   "title": "M2C MediaContext",
   "description": "Structured context extracted from media by M2C analysis pipeline",
   "type": "object",

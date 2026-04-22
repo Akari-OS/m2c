@@ -19,6 +19,18 @@ and **date-based versioning** (`YYYY-MM-DD`) for the protocol spec.
 
 ---
 
+## 2026-04-22 — Schema URI Migration (Breaking)
+
+### Changed (BREAKING)
+- Schema `$id` and namespace URIs migrated from `https://m2c-protocol.org/` to `https://github.com/Akari-OS/m2c/` (the dedicated domain was not secured; canonical source is now the GitHub repository).
+- Affected: `spec/v0.2/schema.json`, `interop.md`, `supply.md`, `modules.md`, and Japanese translations.
+
+### Migration
+- Validators pinning to the old `$id` must update to the new URI.
+- Backwards compatibility: Old URIs will NOT be redirected.
+
+---
+
 ## [0.2.0-draft] — 2026-04-01
 
 プロトコルの本格化。v0.1 のコア設計はそのままに、**Intent-Driven Dispatch**、

@@ -52,9 +52,9 @@ M2C defines a custom XMP namespace for embedding analysis results in media files
 
 | Property | Value |
 |----------|-------|
-| **Namespace URI** | `https://m2c-protocol.org/ns/v0.2/` |
+| **Namespace URI** | `https://github.com/Akari-OS/m2c/ns/v0.2/` |
 | **Preferred Prefix** | `m2c` |
-| **Schema File** | `https://m2c-protocol.org/schema/v0.2/m2c.xmp` |
+| **Schema File** | `https://github.com/Akari-OS/m2c/schema/v0.2/m2c.xmp` |
 
 ### 2.2 XMP Property Mapping
 
@@ -129,7 +129,7 @@ Embedding XMP in video files has known limitations:
 <x:xmpmeta xmlns:x="adobe:ns:meta/">
   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <rdf:Description
-      xmlns:m2c="https://m2c-protocol.org/ns/v0.2/"
+      xmlns:m2c="https://github.com/Akari-OS/m2c/ns/v0.2/"
       m2c:SchemaVersion="1"
       m2c:MediaType="video"
       m2c:Summary="Cooking vlog. 3 recipes demonstrated in a bright kitchen."
@@ -339,7 +339,7 @@ M2C fields map to [Schema.org](https://schema.org/) types and properties, enabli
   "@context": [
     "https://schema.org",
     {
-      "m2c": "https://m2c-protocol.org/ns/v0.2/"
+      "m2c": "https://github.com/Akari-OS/m2c/ns/v0.2/"
     }
   ],
   "@type": "VideoObject",
@@ -595,7 +595,7 @@ Analyzed At                     : 2026-04-01T12:00:00Z
 
 %Image::ExifTool::UserDefined::m2c = (
     GROUPS => { 0 => 'XMP', 1 => 'XMP-m2c', 2 => 'Other' },
-    NAMESPACE => { m2c => 'https://m2c-protocol.org/ns/v0.2/' },
+    NAMESPACE => { m2c => 'https://github.com/Akari-OS/m2c/ns/v0.2/' },
     SchemaVersion => { Writable => 'integer' },
     MediaType     => { Writable => 'string' },
     Summary       => { Writable => 'string' },
@@ -699,7 +699,7 @@ When a media file contains both IPTC metadata and M2C data, implementations SHOU
 
 ## Appendix A: Namespace Registration
 
-The M2C XMP namespace (`https://m2c-protocol.org/ns/v0.2/`) is not registered with Adobe's XMP namespace registry. Implementations MUST include the namespace declaration in every XMP packet. Registration with Adobe's registry will be pursued when M2C reaches v1.0 stable.
+The M2C XMP namespace (`https://github.com/Akari-OS/m2c/ns/v0.2/`) is not registered with Adobe's XMP namespace registry. Implementations MUST include the namespace declaration in every XMP packet. Registration with Adobe's registry will be pursued when M2C reaches v1.0 stable.
 
 ## Appendix B: Future Work
 

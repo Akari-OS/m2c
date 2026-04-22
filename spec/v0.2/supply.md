@@ -225,7 +225,7 @@ interface M2CSelectedContext {
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://m2c-protocol.org/schema/v0.2/context-request.json",
+  "$id": "https://github.com/Akari-OS/m2c/schema/v0.2/context-request.json",
   "title": "M2CContextRequest",
   "type": "object",
   "required": ["mediaIds", "taskType"],
@@ -460,7 +460,7 @@ Each context fragment MAY carry a `contextPolicy` metadata object that declares 
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://m2c-protocol.org/schema/v0.2/context-policy.json",
+  "$id": "https://github.com/Akari-OS/m2c/schema/v0.2/context-policy.json",
   "title": "M2CContextPolicy",
   "type": "object",
   "properties": {
@@ -671,7 +671,7 @@ interface M2CSelectedContext {
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://m2c-protocol.org/schema/v0.2/context-response.json",
+  "$id": "https://github.com/Akari-OS/m2c/schema/v0.2/context-response.json",
   "title": "M2CContextResponse",
   "type": "object",
   "required": ["contexts", "totalTokens", "effectiveLevel", "freshness"],
@@ -687,7 +687,7 @@ interface M2CSelectedContext {
           "tokens": { "type": "integer", "minimum": 0 },
           "data": { "type": "object" },
           "contextPolicy": {
-            "$ref": "https://m2c-protocol.org/schema/v0.2/context-policy.json"
+            "$ref": "https://github.com/Akari-OS/m2c/schema/v0.2/context-policy.json"
           }
         }
       }

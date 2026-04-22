@@ -24,7 +24,7 @@ Every M2C module MUST declare a manifest:
 
 ```json
 {
-  "$schema": "https://m2c-protocol.org/schema/v0.2/module-manifest.json",
+  "$schema": "https://github.com/Akari-OS/m2c/schema/v0.2/module-manifest.json",
   "id": "scene",
   "name": "Scene Detection",
   "version": "1.0.0",
@@ -43,7 +43,7 @@ Every M2C module MUST declare a manifest:
   },
   "author": "M2C Core",
   "license": "Apache-2.0",
-  "homepage": "https://m2c-protocol.org/modules/scene"
+  "homepage": "https://github.com/Akari-OS/m2c/modules/scene"
 }
 ```
 
