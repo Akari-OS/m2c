@@ -126,10 +126,25 @@ spec/
 └── v0.1/                    ← Previous version
 ```
 
-> **Note (v0.2 schema artifacts):** The schema types referenced in `spec/v0.2/` documents
-> (`module-manifest.json`, `context-request.json`, `context-policy.json`,
-> `context-response.json`, `m2c.xmp`) are currently inlined within the spec documents.
-> Standalone JSON artifact files are planned for v0.2.1.
+### JSON Schema Artifacts
+
+Standalone schema files are available at `schema/`:
+
+```
+schema/
+├── v0.2/
+│   ├── media-context.json    ← MediaContext (canonical copy of spec/v0.2/schema.json)
+│   ├── module-manifest.json  ← M2CModuleManifest (modules.md §2.1)
+│   ├── context-request.json  ← M2CContextRequest  (supply.md §3.5 / §7.1)
+│   ├── context-policy.json   ← M2CContextPolicy   (supply.md §5.2)
+│   ├── context-response.json ← M2CContextResponse (supply.md §7.2)
+│   └── m2c.xmp               ← XMP namespace template (interop.md §2)
+└── v0.1/
+    └── media-context.json    ← MediaContext v0.1
+```
+
+All `$id` URIs resolve under `https://github.com/Akari-OS/m2c/schema/v0.2/<filename>`.
+External validators can pin to these URIs directly.
 
 ## Design Principles
 

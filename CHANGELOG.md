@@ -36,10 +36,17 @@ and **date-based versioning** (`YYYY-MM-DD`) for the protocol spec.
 
 ---
 
-> **Note — v0.2 schema artifacts:** Schema types referenced across `spec/v0.2/` documents
-> (`module-manifest.json`, `context-request.json`, `context-policy.json`,
-> `context-response.json`, `m2c.xmp`) are inlined in the spec documents;
-> standalone JSON artifact files are planned for v0.2.1.
+### Added — Schema Artifacts
+
+- Standalone JSON artifact files are now provided at `schema/v0.2/`:
+  - `schema/v0.2/module-manifest.json` — JSON Schema Draft 2020-12 for `M2CModuleManifest` (`modules.md §2.1`)
+  - `schema/v0.2/context-request.json` — JSON Schema Draft 2020-12 for `M2CContextRequest` (`supply.md §3.5 / §7.1`)
+  - `schema/v0.2/context-policy.json` — JSON Schema Draft 2020-12 for `M2CContextPolicy` (`supply.md §5.2`)
+  - `schema/v0.2/context-response.json` — JSON Schema Draft 2020-12 for `M2CContextResponse` (`supply.md §7.2`)
+  - `schema/v0.2/m2c.xmp` — XMP RDF/XML reference template for the `m2c:` namespace (`interop.md §2`)
+  - `schema/v0.2/media-context.json` — canonical copy of `spec/v0.2/schema.json` (MediaContext)
+- `schema/v0.1/media-context.json` — canonical copy of `spec/v0.1/schema.json`
+- All `$id` URIs resolve under `https://github.com/Akari-OS/m2c/schema/v0.2/` (consistent with the 2026-04-22 URI migration)
 
 ## [0.2.0-draft] — 2026-04-01
 
