@@ -33,7 +33,6 @@
 | [`../CONTRIBUTING.md`](../CONTRIBUTING.md) | コントリビューションガイド |
 | [`../CHANGELOG.md`](../CHANGELOG.md) | 変更履歴 |
 | [`../examples/`](../examples/) | サンプル |
-| [`../sdk/`](../sdk/) | SDK |
 
 ---
 
