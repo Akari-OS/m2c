@@ -3,6 +3,7 @@
 > ステータス: ドラフト
 > 日付: 2026-04-01
 > 前バージョン: [v0.1](../../v0.1/protocol.md)
+> 関連仕様: AMP v0.1 (github.com/Akari-OS/amp), ACE v0.1 (github.com/Akari-OS/ace)
 
 ## 1. 概要
 
