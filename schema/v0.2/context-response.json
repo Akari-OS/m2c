@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Akari-OS/m2c/schema/v0.2/context-response.json",
+  "title": "M2CContextResponse",
+  "description": "Response object returned by M2CContextSelector.select(). Contains selected, compressed, and isolated context fragments along with token counts, effective level, compression metadata, and freshness information (spec/v0.2/supply.md §7.2).",
+  "type": "object",
+  "required": ["contexts", "totalTokens", "effectiveLevel", "freshness"],
+  "properties": {
+    "contexts": {
+      "type": "array",
+      "description": "Selected context fragments, one per media source",
+      "items": {
+        "type": "object",
+        "required": ["mediaId", "level", "tokens", "data"],
+        "properties": {
+          "mediaId": {
+            "type": "string",
+            "description": "Media ID"
+          },
+          "level": {
+            "type": "string",
+            "enum": ["L0", "L1", "L2", "L3"],
+            "description": "Context level used for this source"
+          },
+          "tokens": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Estimated tokens for this context"
+          },
+          "data": {
+            "type": "object",
+            "description": "The selected and possibly compressed context data (partial MediaContext)"
+          },
+          "contextPolicy": {
+            "$ref": "https://github.com/Akari-OS/m2c/schema/v0.2/context-policy.json"
+          }
+        }
+      }
+    },
+    "totalTokens": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total estimated tokens consumed across all context fragments"
+    },
+    "effectiveLevel": {
+      "type": "string",
+      "enum": ["L0", "L1", "L2", "L3"],
+      "description": "The level actually used. May differ from requested level if budget-constrained."
+    },
+    "compression": {
+      "type": "object",
+      "description": "Compression metadata (present if compression was applied)",
+      "properties": {
+        "strategy": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Compression strategies applied"
+        },
+        "originalTokens": {
+          "type": "integer",
+          "description": "Token count before compression"
+        },
+        "compressedTokens": {
+          "type": "integer",
+          "description": "Token count after compression"
+        },
+        "ratio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Compression ratio (compressedTokens / originalTokens)"
+        },
+        "lossLevel": {
+          "type": "string",
+          "enum": ["none", "minimal", "moderate", "aggressive"],
+          "description": "Information loss level: 'none' (formatting only) / 'minimal' (redundancy removed) / 'moderate' (summarized) / 'aggressive' (heavy summarization)"
+        }
+      }
+    },
+    "freshness": {
+      "type": "object",
+      "required": ["analyzedAt", "suppliedAt", "ttlSeconds"],
+      "description": "Freshness metadata for context rot prevention",
+      "properties": {
+        "analyzedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the analysis was performed (ISO 8601 UTC)"
+        },
+        "suppliedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the context was last supplied to a consumer (ISO 8601 UTC)"
+        },
+        "ttlSeconds": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Recommended time-to-live in seconds. After expiry, consumers SHOULD request fresh context."
+        }
+      }
+    }
+  }
+}

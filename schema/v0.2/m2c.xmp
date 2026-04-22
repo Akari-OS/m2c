@@ -1,0 +1,105 @@
+<?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<!--
+  M2C XMP Namespace Template
+  Namespace URI : https://github.com/Akari-OS/m2c/ns/v0.2/
+  Preferred Prefix: m2c
+  Spec reference : spec/v0.2/interop.md §2
+
+  This file is a reference XMP packet template showing all M2C top-level
+  properties that SHOULD be embedded in-file (L0–L1 fields only).
+  Complex fields (transcription, acoustic, visual, style) MUST be stored
+  in the sidecar JSON file per interop.md §7.
+
+  Property definitions (see interop.md §2.2 and §2.3):
+
+    m2c:SchemaVersion   Integer   MUST be present. Date-based schema version.
+    m2c:MediaType       Text      MUST be present. Closed Choice: video | image | audio.
+    m2c:Summary         Lang Alt  AI-generated summary. Multilingual via xml:lang.
+    m2c:Tags            Bag Text  Unordered set of content tags.
+    m2c:Mood            Text      Overall mood/atmosphere label.
+    m2c:ColorPalette    Seq Text  Ordered list of dominant colors as hex codes.
+    m2c:Duration        Real      Duration in seconds (0 for non-temporal media).
+    m2c:Confidence      Real      Aggregate confidence score (0.0–1.0).
+    m2c:PrecisionLevel  Text      Closed Choice: quick | standard | deep.
+    m2c:AnalyzedAt      Date      ISO 8601 UTC timestamp of analysis completion.
+    m2c:AnalyzedModules Bag Text  Module IDs that contributed to this context.
+    m2c:Speakers        Bag Struct m2c:Speaker structs (see §2.3).
+    m2c:Scenes          Seq Struct m2c:Scene structs (see §2.3).
+
+  Struct: m2c:Speaker
+    m2c:SpeakerId    Text   Speaker ID
+    m2c:SpeakerLabel Text   Human-readable label
+    m2c:SpeakerRatio Real   Speaking ratio (0.0–1.0)
+
+  Struct: m2c:Scene
+    m2c:SceneIndex      Integer  Scene index (0-based)
+    m2c:SceneStart      Real     Start time in seconds
+    m2c:SceneEnd        Real     End time in seconds
+    m2c:SceneSummary    Text     Scene summary
+    m2c:SceneMood       Text     Scene mood label
+    m2c:SceneConfidence Real     Scene confidence score (0.0–1.0)
+-->
+<x:xmpmeta xmlns:x="adobe:ns:meta/">
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description
+      xmlns:m2c="https://github.com/Akari-OS/m2c/ns/v0.2/"
+      m2c:SchemaVersion="1"
+      m2c:MediaType="video"
+      m2c:Mood="bright, casual"
+      m2c:Duration="342.5"
+      m2c:Confidence="0.92"
+      m2c:PrecisionLevel="standard"
+      m2c:AnalyzedAt="2026-04-01T12:00:00Z">
+      <m2c:Summary>
+        <rdf:Alt>
+          <rdf:li xml:lang="en">Cooking vlog. 3 recipes demonstrated in a bright kitchen.</rdf:li>
+        </rdf:Alt>
+      </m2c:Summary>
+      <m2c:Tags>
+        <rdf:Bag>
+          <rdf:li>cooking</rdf:li>
+          <rdf:li>vlog</rdf:li>
+          <rdf:li>recipe</rdf:li>
+        </rdf:Bag>
+      </m2c:Tags>
+      <m2c:ColorPalette>
+        <rdf:Seq>
+          <rdf:li>#F5E6D3</rdf:li>
+          <rdf:li>#2C5F2D</rdf:li>
+          <rdf:li>#E8A87C</rdf:li>
+        </rdf:Seq>
+      </m2c:ColorPalette>
+      <m2c:AnalyzedModules>
+        <rdf:Bag>
+          <rdf:li>scene</rdf:li>
+          <rdf:li>transcription</rdf:li>
+          <rdf:li>visual</rdf:li>
+          <rdf:li>color</rdf:li>
+          <rdf:li>summary</rdf:li>
+        </rdf:Bag>
+      </m2c:AnalyzedModules>
+      <m2c:Speakers>
+        <rdf:Bag>
+          <rdf:li rdf:parseType="Resource">
+            <m2c:SpeakerId>SPEAKER_01</m2c:SpeakerId>
+            <m2c:SpeakerLabel>Host</m2c:SpeakerLabel>
+            <m2c:SpeakerRatio>1.0</m2c:SpeakerRatio>
+          </rdf:li>
+        </rdf:Bag>
+      </m2c:Speakers>
+      <m2c:Scenes>
+        <rdf:Seq>
+          <rdf:li rdf:parseType="Resource">
+            <m2c:SceneIndex>0</m2c:SceneIndex>
+            <m2c:SceneStart>0.0</m2c:SceneStart>
+            <m2c:SceneEnd>45.2</m2c:SceneEnd>
+            <m2c:SceneSummary>Opening. Host greets viewers and introduces the recipes.</m2c:SceneSummary>
+            <m2c:SceneMood>bright, casual</m2c:SceneMood>
+            <m2c:SceneConfidence>0.94</m2c:SceneConfidence>
+          </rdf:li>
+        </rdf:Seq>
+      </m2c:Scenes>
+    </rdf:Description>
+  </rdf:RDF>
+</x:xmpmeta>
+<?xpacket end="w"?>

@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Akari-OS/m2c/schema/v0.2/context-request.json",
+  "title": "M2CContextRequest",
+  "description": "Request object for the M2CContextSelector.select() call. Controls which media context is selected, at what level, and under what budget and isolation constraints (spec/v0.2/supply.md §3.5 and §7.1).",
+  "type": "object",
+  "required": ["mediaIds", "taskType"],
+  "properties": {
+    "mediaIds": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "One or more media IDs to retrieve context for"
+    },
+    "taskType": {
+      "type": "string",
+      "description": "Task type for adaptive level selection",
+      "examples": ["search", "edit_planning", "scene_editing", "transcription_work"]
+    },
+    "maxTokens": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Maximum token budget for the entire response"
+    },
+    "minConfidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "default": 0.4,
+      "description": "Minimum confidence threshold. Context with confidence below this value MUST be excluded."
+    },
+    "level": {
+      "type": "string",
+      "enum": ["L0", "L1", "L2", "L3"],
+      "description": "Explicit level override. When set, bypasses task-adaptive selection."
+    },
+    "relevance": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0.0,
+        "maximum": 1.0
+      },
+      "description": "Per-media relevance scores (0.0–1.0) for budget allocation. Keys are media IDs. Missing entries default to 1.0."
+    },
+    "role": {
+      "type": "string",
+      "enum": ["planner", "worker", "reviewer", "user"],
+      "description": "Consumer role for isolation (default: all roles)"
+    },
+    "temporalScope": {
+      "type": "object",
+      "required": ["start", "end"],
+      "properties": {
+        "start": { "type": "number", "minimum": 0, "description": "Start time in seconds (inclusive)" },
+        "end": { "type": "number", "minimum": 0, "description": "End time in seconds (inclusive)" }
+      },
+      "description": "Temporal scope filter. Only data within this time range will be included."
+    },
+    "modalities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["visual", "transcription", "acoustic", "color", "summary", "style"]
+      },
+      "description": "Modality filter. Only the specified modalities will be included."
+    },
+    "compression": {
+      "type": "object",
+      "description": "Compression preferences",
+      "properties": {
+        "strategies": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["summary", "temporal", "modality_filter", "iterative"]
+          },
+          "description": "Allowed compression strategies (default: all)"
+        },
+        "maxLossLevel": {
+          "type": "string",
+          "enum": ["none", "minimal", "moderate", "aggressive"],
+          "description": "Maximum acceptable information loss level"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Akari-OS/m2c/schema/v0.2/context-policy.json",
+  "title": "M2CContextPolicy",
+  "description": "Metadata carried by each context fragment that declares its isolation constraints: intended audience, temporal scope, modalities, and priority (spec/v0.2/supply.md §5.2).",
+  "type": "object",
+  "properties": {
+    "audience": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "examples": ["planner", "worker", "reviewer", "user"]
+      },
+      "default": [],
+      "description": "Roles that SHOULD receive this context. Empty array means all roles."
+    },
+    "temporalScope": {
+      "type": "object",
+      "required": ["start", "end"],
+      "properties": {
+        "start": { "type": "number", "minimum": 0, "description": "Start time in seconds (inclusive)" },
+        "end": { "type": "number", "minimum": 0, "description": "End time in seconds (inclusive)" }
+      },
+      "description": "Time range this context covers"
+    },
+    "modalities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["visual", "transcription", "acoustic", "color", "summary", "style"]
+      },
+      "description": "Source types included in this context fragment"
+    },
+    "priority": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "default": 0.5,
+      "description": "Priority weight (0.0–1.0). Higher-priority fragments are kept when budget is tight."
+    }
+  }
+}

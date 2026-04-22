@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Akari-OS/m2c/schema/v0.2/module-manifest.json",
+  "title": "M2CModuleManifest",
+  "description": "Manifest that every M2C module MUST declare. Defines identity, capability, cost, and dependency information (spec/v0.2/modules.md §2.1).",
+  "type": "object",
+  "required": ["id", "name", "version", "category", "supportedTypes", "dependencies"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema reference URI for this manifest"
+    },
+    "id": {
+      "type": "string",
+      "description": "Module identifier. Core modules use simple names (e.g. 'scene'). Third-party modules SHOULD use reverse-domain naming (e.g. 'com.example.brand-detection')."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable module name"
+    },
+    "version": {
+      "type": "string",
+      "description": "Semantic version string (e.g. '1.0.0')"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["atom", "workflow"],
+      "description": "Module category. 'atom' = single-function minimal dependency. 'workflow' = composes multiple atoms."
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description of the module's function"
+    },
+    "supportedTypes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "Media types this module can process (e.g. 'video', 'audio', 'image'). See protocol.md §2 for the full type list."
+    },
+    "dependencies": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Module IDs that must run before this module. Use '\"*\"' as the sole element to mean 'all executed modules' (used by the 'summary' module)."
+    },
+    "confidenceWeight": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Weight for confidence aggregation. See modules.md §3.1 for default values per core module."
+    },
+    "capabilities": {
+      "type": "object",
+      "description": "Module-specific capability flags",
+      "properties": {
+        "algorithms": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Supported algorithm identifiers (module-specific)"
+        },
+        "outputArtifacts": {
+          "type": "boolean",
+          "description": "Whether this module produces file artifacts (e.g. keyframe images)"
+        },
+        "streaming": {
+          "type": "boolean",
+          "description": "Whether this module supports streaming input"
+        }
+      },
+      "additionalProperties": true
+    },
+    "estimateCost": {
+      "type": "object",
+      "description": "Cost estimation hints keyed by precision level or scope",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["cost", "costUnit", "timeMs"],
+        "properties": {
+          "cost": { "type": "number" },
+          "costUnit": {
+            "type": "string",
+            "description": "Unit label: 'local', 'credits', 'USD', 'tokens', etc."
+          },
+          "timeMs": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Estimated wall-clock time in milliseconds"
+          }
+        }
+      }
+    },
+    "author": {
+      "type": "string",
+      "description": "Author or maintainer name"
+    },
+    "license": {
+      "type": "string",
+      "description": "SPDX license identifier (e.g. 'Apache-2.0')"
+    },
+    "homepage": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the module's home page or repository"
+    }
+  },
+  "additionalProperties": true
+}
