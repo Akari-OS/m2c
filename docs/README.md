@@ -17,6 +17,7 @@
 | ファイル | 内容 |
 |---|---|
 | [architecture.md](./architecture.md) | M2C アーキテクチャ — Layer 0-4 モデル、Module Manifest、Analyzer 連携 |
+| [migration-v0.1-to-v0.2.md](./migration-v0.1-to-v0.2.md) | **v0.1 実装者向け** — schemaVersion / context 構造 / URI 置換ガイド（breaking changes 対応） |
 
 ### spec（プロトコル仕様）
 

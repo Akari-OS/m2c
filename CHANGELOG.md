@@ -53,6 +53,36 @@ and **date-based versioning** (`YYYY-MM-DD`) for the protocol spec.
 プロトコルの本格化。v0.1 のコア設計はそのままに、**Intent-Driven Dispatch**、
 **4-Pillar Context Supply**、**LAN Distributed** トポロジ、**相互運用仕様**を追加。
 
+### ⚠ BREAKING CHANGES
+
+v0.1 を実装・運用しているツールは、以下の破壊変更に対応が必須です：
+
+1. **`schemaVersion` フィールドの型変更**
+   - v0.1: 整数 (`1`)
+   - v0.2: ISO 8601 日付文字列 (`"2026-04-01"`)
+   - **対応**: Consumer は `schemaVersion` の型チェック（`typeof` / 正規表現）を追加し、v0.1 / v0.2 を自動判定してから parse すること
+   - Migration guide: [docs/migration-v0.1-to-v0.2.md](./docs/migration-v0.1-to-v0.2.md) §2 参照
+
+2. **`context` フィールド構造の大幅変更（単層 → 4 層 L0–L3）**
+   - v0.1: `context: { ... }` の単層
+   - v0.2: `context: { L0, L1, L2, L3 }` の 4 層（各層は異なる詳細度）
+   - **対応**: v0.1 の single `context` を v0.2 の L0–L3 に分割、または v0.1 互換モードで受け付ける設計に変更
+   - Migration guide: [docs/migration-v0.1-to-v0.2.md](./docs/migration-v0.1-to-v0.2.md) §3 参照
+
+3. **Namespace URI の変更**
+   - v0.1: `https://m2c-protocol.org/` (オートホステッド、未安全化)
+   - v0.2: `https://github.com/Akari-OS/m2c/` (GitHub リポジトリ)
+   - **対応**: Validator や XMP 参照ツールの namespace URI を置換。旧 URI への自動リダイレクトはなし
+   - Migration guide: [docs/migration-v0.1-to-v0.2.md](./docs/migration-v0.1-to-v0.2.md) §4 参照
+
+4. **Schema `$id` の更新**
+   - v0.1: `https://m2c-protocol.org/schemas/v0.1/media-context.json`
+   - v0.2: `https://github.com/Akari-OS/m2c/schema/v0.2/media-context.json`
+   - **対応**: JSON Schema validator や `$ref` 参照のベース URI をこれ以降の新規デプロイから更新
+   - Migration guide: [docs/migration-v0.1-to-v0.2.md](./docs/migration-v0.1-to-v0.2.md) §5 参照
+
+---
+
 ### Added
 
 - **Intent-Driven Dispatch** (`protocol.md §3.2`)
