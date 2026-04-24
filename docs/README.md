@@ -25,6 +25,7 @@
 |---|---|
 | [`../spec/v0.1/`](../spec/v0.1/) | v0.1 — 仕様本体 |
 | [`../spec/v0.2/`](../spec/v0.2/) | v0.2 — ドラフト |
+| [`../spec/v0.2/SCHEMAS.md`](../spec/v0.2/SCHEMAS.md) | v0.2 の JSON Schema ファイル一覧（`schema.json` / `capabilities.schema.json` / `request.schema.json`）と追記ルール。SDK codegen の入力にも使われる |
 
 ### ルート直下のメタドキュメント
 
