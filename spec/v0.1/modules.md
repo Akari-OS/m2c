@@ -18,6 +18,7 @@ Each M2C module is an independent analysis unit. Modules can be implemented in a
 **Reference Implementation**: PySceneDetect
 
 ### Input
+
 ```json
 {
   "filePath": "/path/to/video.mp4",
@@ -30,6 +31,7 @@ Each M2C module is an independent analysis unit. Modules can be implemented in a
 ```
 
 ### Output
+
 ```json
 {
   "scenes": [
@@ -47,6 +49,7 @@ Each M2C module is an independent analysis unit. Modules can be implemented in a
 ```
 
 ### Confidence Calculation
+
 - Confidence = 1.0 - (ambiguous_cuts / total_cuts)
 - Ambiguous cut = score within 10% of threshold
 
@@ -61,6 +64,7 @@ Each M2C module is an independent analysis unit. Modules can be implemented in a
 **Reference Implementation**: WhisperX + pyannote
 
 ### Input
+
 ```json
 {
   "filePath": "/path/to/media.mp4",
@@ -74,6 +78,7 @@ Each M2C module is an independent analysis unit. Modules can be implemented in a
 ```
 
 ### Output
+
 ```json
 {
   "segments": [
@@ -98,6 +103,7 @@ Each M2C module is an independent analysis unit. Modules can be implemented in a
 ```
 
 ### Confidence Calculation
+
 - Segment confidence = average word confidence
 - Module confidence = average segment confidence, weighted by duration
 
@@ -112,6 +118,7 @@ Each M2C module is an independent analysis unit. Modules can be implemented in a
 **Reference Implementation**: BLIP-3 / Open CLIP + YOLO
 
 ### Input
+
 ```json
 {
   "filePath": "/path/to/image.jpg",
@@ -126,6 +133,7 @@ Each M2C module is an independent analysis unit. Modules can be implemented in a
 For video: input is the keyframe paths from the `scene` module (dependency).
 
 ### Output
+
 ```json
 {
   "frames": [
@@ -149,9 +157,11 @@ For video: input is the keyframe paths from the `scene` module (dependency).
 ```
 
 ### Dependencies
+
 - `scene` (for video — needs keyframe paths)
 
 ### Confidence Calculation
+
 - Frame confidence = average of caption confidence and mean object confidence
 - Module confidence = average frame confidence
 
@@ -166,6 +176,7 @@ For video: input is the keyframe paths from the `scene` module (dependency).
 **Reference Implementation**: MovieColorSchemer / Color Thief
 
 ### Input
+
 ```json
 {
   "filePath": "/path/to/image.jpg",
@@ -177,6 +188,7 @@ For video: input is the keyframe paths from the `scene` module (dependency).
 ```
 
 ### Output
+
 ```json
 {
   "palette": ["#F5E6D3", "#2C5F2D", "#E8A87C", "#97C1A9", "#4A4A4A"],
@@ -189,6 +201,7 @@ For video: input is the keyframe paths from the `scene` module (dependency).
 ```
 
 ### Confidence Calculation
+
 - Always 1.0 (deterministic algorithm)
 
 ---
@@ -202,6 +215,7 @@ For video: input is the keyframe paths from the `scene` module (dependency).
 **Reference Implementation**: PANNs
 
 ### Input
+
 ```json
 {
   "filePath": "/path/to/audio.mp3",
@@ -212,6 +226,7 @@ For video: input is the keyframe paths from the `scene` module (dependency).
 ```
 
 ### Output
+
 ```json
 {
   "bgmSegments": [
@@ -231,6 +246,7 @@ For video: input is the keyframe paths from the `scene` module (dependency).
 ```
 
 ### Confidence Calculation
+
 - Module confidence = average event confidence
 
 ---
@@ -244,6 +260,7 @@ For video: input is the keyframe paths from the `scene` module (dependency).
 **Reference Implementation**: MediaPipe
 
 ### Input
+
 ```json
 {
   "filePath": "/path/to/image.jpg",
@@ -256,6 +273,7 @@ For video: input is the keyframe paths from the `scene` module (dependency).
 ```
 
 ### Output
+
 ```json
 {
   "persons": [
@@ -277,9 +295,11 @@ For video: input is the keyframe paths from the `scene` module (dependency).
 ```
 
 ### Dependencies
+
 - `scene` (for video — needs keyframe paths)
 
 ### Confidence Calculation
+
 - Per-person confidence = average of expression and gesture confidence
 - Module confidence = average person confidence
 
@@ -294,9 +314,11 @@ For video: input is the keyframe paths from the `scene` module (dependency).
 **Reference Implementation**: LLM (OpenRouter / local)
 
 ### Input
+
 All outputs from previously executed modules are passed as `dependencyOutputs`.
 
 ### Output
+
 ```json
 {
   "summary": "料理Vlog。3つのレシピ（パスタ、サラダ、デザート）を紹介。明るいキッチンで撮影。ホスト1名が解説。BGMあり（アップテンポ）。全体的に明るくカジュアルな雰囲気。",
@@ -308,8 +330,10 @@ All outputs from previously executed modules are passed as `dependencyOutputs`.
 ```
 
 ### Dependencies
+
 - ALL other executed modules
 
 ### Confidence Calculation
+
 - Summary confidence = weighted average of all input module confidences
 - This becomes the `MediaContext.confidence` value

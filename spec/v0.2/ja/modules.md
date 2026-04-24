@@ -94,11 +94,13 @@ GET /m2c/modules → M2CModuleManifest[]
 **リファレンス実装**: PySceneDetect, FFmpeg scene filter
 
 **入力オプション**:
+
 ```json
 { "algorithm": "adaptive", "threshold": 27.0, "minSceneDuration": 1.0 }
 ```
 
 **出力**（`data` フィールド）:
+
 ```json
 {
   "scenes": [
@@ -121,11 +123,13 @@ GET /m2c/modules → M2CModuleManifest[]
 **リファレンス実装**: WhisperX, Faster Whisper, 任意の STT API
 
 **入力オプション**:
+
 ```json
 { "language": "ja", "model": "large-v3", "diarize": true, "wordTimestamps": true }
 ```
 
 **出力**:
+
 ```json
 {
   "segments": [
@@ -149,6 +153,7 @@ GET /m2c/modules → M2CModuleManifest[]
 **リファレンス実装**: BLIP-3, Open CLIP + YOLO, 任意の Vision LLM
 
 **出力**:
+
 ```json
 {
   "frames": [
@@ -176,6 +181,7 @@ GET /m2c/modules → M2CModuleManifest[]
 **リファレンス実装**: MovieColorSchemer, Color Thief
 
 **出力**:
+
 ```json
 {
   "palette": ["#F5E6D3", "#2C5F2D", "#E8A87C"],
@@ -199,6 +205,7 @@ GET /m2c/modules → M2CModuleManifest[]
 **リファレンス実装**: PANNs, 任意の音声分類モデル
 
 **出力**:
+
 ```json
 {
   "bgmSegments": [ { "start": 0.0, "end": 5.0, "mood": "upbeat", "confidence": 0.85 } ],
@@ -221,6 +228,7 @@ GET /m2c/modules → M2CModuleManifest[]
 **リファレンス実装**: MediaPipe, 任意のポーズ推定モデル
 
 **出力**:
+
 ```json
 {
   "persons": [
@@ -245,6 +253,7 @@ GET /m2c/modules → M2CModuleManifest[]
 **リファレンス実装**: Apache Tika, pdfplumber, python-pptx
 
 **出力**:
+
 ```json
 {
   "text": "Full extracted text...",
@@ -271,6 +280,7 @@ GET /m2c/modules → M2CModuleManifest[]
 **入力**: `dependencyOutputs` を通じて、事前に実行されたすべてのモジュールの出力を受け取る。
 
 **出力**:
+
 ```json
 {
   "summary": "Cooking vlog featuring 3 recipes. Bright kitchen setting, single host. Upbeat BGM throughout.",

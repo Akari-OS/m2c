@@ -260,6 +260,7 @@ Content:         CBOR-encoded MediaContext JSON
 Implementations MAY embed the full MediaContext or a subset (e.g., L0 or L1 only) depending on size constraints. The `m2c:PrecisionLevel` in the assertion MUST match the depth of the embedded data.
 
 **Size guidance**:
+
 - L0 (tags + mood): ~200 bytes — SHOULD embed
 - L1 (summary + tags + palette + speakers): ~1 KB — SHOULD embed
 - L2 (+ scenes): ~5–50 KB — MAY embed
@@ -282,6 +283,7 @@ M2C analysis creates a new step in the provenance chain. The relationship betwee
 ```
 
 Each C2PA manifest in the chain MUST include:
+
 1. A `parentOf` relationship to the previous manifest
 2. The `m2c.analyzed` action when M2C analysis occurs
 3. Subsequent editing actions that MAY reference M2C context data
@@ -484,6 +486,7 @@ The sidecar JSON file MUST follow this naming convention:
 ```
 
 Examples:
+
 - `cooking-vlog.mp4` → `cooking-vlog.mp4.m2c.json`
 - `portrait.jpg` → `portrait.jpg.m2c.json`
 

@@ -349,6 +349,7 @@ Within Budget ✓
 ```
 
 Each iteration MUST preserve:
+
 - Key entities (speakers, objects, locations)
 - Temporal structure (scene order, act boundaries)
 - Confidence scores (propagated as minimum of inputs)

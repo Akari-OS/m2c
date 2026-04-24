@@ -243,6 +243,7 @@ confidence = Σ(module_confidence × module_weight) / Σ(module_weight)
 ```
 
 Default weights:
+
 | Module | Weight |
 |--------|--------|
 | scene | 1.0 |

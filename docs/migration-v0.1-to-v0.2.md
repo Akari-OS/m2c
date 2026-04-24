@@ -1,8 +1,9 @@
 # M2C v0.1 → v0.2 Migration Guide
 
 > **スコープ**: M2C v0.1 を実装・運用しているツール・システムが v0.2 へ対応するための実践ガイド。
-> 
+>
 > **対象読者**:
+>
 > - M2C Analyzer の実装者（Reference Implementation など）
 > - M2C を統合したアプリケーション（例: AKARI Pool）
 > - M2C の Validator / Schema ツール

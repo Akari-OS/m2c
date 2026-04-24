@@ -45,6 +45,7 @@ M2C (Media to Context) is an open protocol for transforming raw media files into
 M2C uses **date-based versioning**: `YYYY-MM-DD` (e.g., `2026-04-01`).
 
 Version negotiation follows the MCP pattern:
+
 1. Consumer sends its supported version
 2. Provider responds with the same version (if supported) or its latest
 3. If incompatible, the connection is rejected
@@ -127,6 +128,7 @@ interface M2CIntent {
 ```
 
 When intent is provided:
+
 - The dispatcher SHOULD skip modules that are irrelevant (e.g., `hasAudio: false` → skip `transcription` and `acoustic`)
 - The `summary` module SHOULD incorporate `purpose` and `background` into the generated summary
 - Cost estimation SHOULD reflect the reduced module set
@@ -498,6 +500,7 @@ Modules are invoked via function calls, stdio, or unix socket. No network traffi
 - The consumer's Capability Negotiation discovers which modules are available on which node
 
 **Typical setup:**
+
 1. Install M2C Analyzer on the powerful machine
 2. Analyzer broadcasts availability via mDNS: `_m2c._tcp.local`
 3. Consumer auto-discovers and shows: "Analysis server found: Desktop-PC (RTX 4090)"

@@ -94,11 +94,13 @@ Core modules (defined in this spec) use simple names: `scene`, `transcription`, 
 **Reference Implementations**: PySceneDetect, FFmpeg scene filter
 
 **Input Options**:
+
 ```json
 { "algorithm": "adaptive", "threshold": 27.0, "minSceneDuration": 1.0 }
 ```
 
 **Output** (`data` field):
+
 ```json
 {
   "scenes": [
@@ -121,11 +123,13 @@ Core modules (defined in this spec) use simple names: `scene`, `transcription`, 
 **Reference Implementations**: WhisperX, Faster Whisper, any STT API
 
 **Input Options**:
+
 ```json
 { "language": "ja", "model": "large-v3", "diarize": true, "wordTimestamps": true }
 ```
 
 **Output**:
+
 ```json
 {
   "segments": [
@@ -149,6 +153,7 @@ Core modules (defined in this spec) use simple names: `scene`, `transcription`, 
 **Reference Implementations**: BLIP-3, Open CLIP + YOLO, any Vision LLM
 
 **Output**:
+
 ```json
 {
   "frames": [
@@ -176,6 +181,7 @@ Core modules (defined in this spec) use simple names: `scene`, `transcription`, 
 **Reference Implementations**: MovieColorSchemer, Color Thief
 
 **Output**:
+
 ```json
 {
   "palette": ["#F5E6D3", "#2C5F2D", "#E8A87C"],
@@ -199,6 +205,7 @@ Core modules (defined in this spec) use simple names: `scene`, `transcription`, 
 **Reference Implementations**: PANNs, any audio classification model
 
 **Output**:
+
 ```json
 {
   "bgmSegments": [ { "start": 0.0, "end": 5.0, "mood": "upbeat", "confidence": 0.85 } ],
@@ -221,6 +228,7 @@ Core modules (defined in this spec) use simple names: `scene`, `transcription`, 
 **Reference Implementations**: MediaPipe, any pose estimation model
 
 **Output**:
+
 ```json
 {
   "persons": [
@@ -245,6 +253,7 @@ Core modules (defined in this spec) use simple names: `scene`, `transcription`, 
 **Reference Implementations**: Apache Tika, pdfplumber, python-pptx
 
 **Output**:
+
 ```json
 {
   "text": "Full extracted text...",
@@ -271,6 +280,7 @@ Core modules (defined in this spec) use simple names: `scene`, `transcription`, 
 **Input**: All outputs from previously executed modules via `dependencyOutputs`.
 
 **Output**:
+
 ```json
 {
   "summary": "Cooking vlog featuring 3 recipes. Bright kitchen setting, single host. Upbeat BGM throughout.",
