@@ -1,6 +1,8 @@
 # M2C — Media to Context Protocol
 
 > Transform any media into structured, AI-ready context.
+>
+> 📜 **Type: Specification** — This repo holds the protocol spec only. Implementations live in separate repos. See [Known Implementations](#known-implementations).
 
 ## What is M2C?
 
