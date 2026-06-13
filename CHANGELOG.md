@@ -19,6 +19,15 @@ and **date-based versioning** (`YYYY-MM-DD`) for the protocol spec.
 
 ---
 
+## 2026-05-07 — License Text Update
+
+### Changed
+
+- `LICENSE` ファイルを Apache 2.0 短縮版から公式全文（202 行版）に更新。
+  ライセンス種別・条件に変更はなく、テキスト整合性の修正のみ。
+
+---
+
 ## 2026-04-22 — Schema URI Migration (Breaking)
 
 ### Changed (BREAKING)

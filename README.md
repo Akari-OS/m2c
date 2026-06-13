@@ -137,13 +137,25 @@ schema/
 ├── v0.2/
 │   ├── media-context.json    ← MediaContext (canonical copy of spec/v0.2/schema.json)
 │   ├── module-manifest.json  ← M2CModuleManifest (modules.md §2.1)
-│   ├── context-request.json  ← M2CContextRequest  (supply.md §3.5 / §7.1)
+│   ├── context-request.json  ← M2CContextRequest  (supply.md §3.5 / §7.1) ※Supply 側の Context 要求
 │   ├── context-policy.json   ← M2CContextPolicy   (supply.md §5.2)
 │   ├── context-response.json ← M2CContextResponse (supply.md §7.2)
 │   └── m2c.xmp               ← XMP namespace template (interop.md §2)
 └── v0.1/
     └── media-context.json    ← MediaContext v0.1
 ```
+
+Capability Negotiation（§6）で使う Consumer Request の Schema は `spec/v0.2/` 以下に置かれています：
+
+```
+spec/v0.2/
+├── request.schema.json       ← Consumer Request (protocol.md §6.2) ※Negotiation 時の Consumer 送信ペイロード
+└── capabilities.schema.json  ← Provider Capabilities (protocol.md §6.1)
+```
+
+> `schema/v0.2/context-request.json`（Supply プロトコルの Context 要求）と
+> `spec/v0.2/request.schema.json`（Capability Negotiation の Consumer Request）は**別オブジェクト**です。
+> 詳細は [`spec/v0.2/SCHEMAS.md`](spec/v0.2/SCHEMAS.md) を参照。
 
 All `$id` URIs resolve under `https://github.com/Akari-OS/m2c/schema/v0.2/<filename>`.
 External validators can pin to these URIs directly.
